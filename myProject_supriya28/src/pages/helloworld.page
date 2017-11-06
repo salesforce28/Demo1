@@ -1,0 +1,18 @@
+<apex:page standardController="Case">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations !{!$User.FirstName}</h1><br/>
+  <b>This is your new Page: Hello World</b>
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection title="Case Snippet" columns="3">
+  <apex:inputField value="{!Case.Subject}"/>
+  <apex:inputField value="{!Case.Origin}"/>
+  <apex:inputField value="{!Case.OwnerId}" label="Owner"/>
+  <apex:commandButton action="{!save}" value="Update"/>
+  </apex:pageBlockSection>
+  </apex:pageBlock>
+  </apex:form>
+  <apex:detail relatedList="False"/>
+  
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

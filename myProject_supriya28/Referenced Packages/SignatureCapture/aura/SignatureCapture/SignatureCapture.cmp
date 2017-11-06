@@ -1,0 +1,41 @@
+<aura:component controller="BGSIGCAP.SignatureCaptureController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute access="global" name="startMsg" type="String" default="Click the 'Capture Signature' button to begin" 
+                     description="Message to display to the user to start the signature capture process"/>
+    <aura:attribute access="global" name="enterMsg" type="String" default="Sign here please" 
+                     description="Text to display above the signature capture canvas" />
+    <aura:attribute access="global" name="completeMsg" type="String" default="Here is the captured signature" 
+                     description="Text to display above the image of the captured signature once it has been saved to the server"/>
+    <aura:attribute access="global" name="recordId" type="String"
+                     description="The id of the record to attach the signature to"/>
+    <aura:attribute access="global" name="width" type="String" required="true" default="100%"
+                    description="Width of the signature capture canvas"/>
+    <aura:attribute access="global" name="height" type="String" required="true" default="300px"
+                    description="Height of the signature capture canvas"/>
+    <aura:attribute access="global" name="captureButtonLabel" type="String" default="Capture Signature" 
+                     description="Label for the capture signature button" />
+    <aura:attribute access="global" name="saveButtonLabel" type="String" default="Save" 
+                     description="Label for the save button" />
+    <aura:attribute access="global" name="clearButtonLabel" type="String" default="Clear" 
+                     description="Label for the clear button" />
+    
+        <div aura:id="startcontent">
+            <p id="startmessage" class="message">{!v.startMsg}</p>
+            <ui:button aura:id="startbtn" label="{!v.captureButtonLabel}" press="{!c.setup}"/>
+        </div>
+    
+        <div aura:id="sigdiv" class="sc-invisible" style="padding-top:10px; width:100%">
+            <p class="message">{!v.enterMsg}</p>
+            <div>
+				<canvas class="box" id="paint"></canvas>
+            </div>
+            <ui:button label="{!v.saveButtonLabel}" press="{!c.save}"/>
+            <ui:button label="{!v.clearButtonLabel}" press="{!c.clear}"/>
+        </div>
+    
+        <div aura:id="completecontent" class="sc-notdisplayed" style="padding-top:10px;">
+            <p id="completemessage" class="message">{!v.completeMsg}</p>
+            <img id="sigimage" style="border: solid 1px black;"/>
+        </div>
+		<div><center><ui:spinner aura:id="spinner" isVisible="false"/></center></div>        
+	    <div class="opaque"/>
+</aura:component>

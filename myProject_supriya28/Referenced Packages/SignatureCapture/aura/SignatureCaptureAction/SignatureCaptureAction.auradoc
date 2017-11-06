@@ -1,0 +1,5 @@
+<aura:documentation>
+	<aura:description>
+        Lightning Component that can be surfaced as a Quick Action to capture a signature.
+    </aura:description>
+</aura:documentation>

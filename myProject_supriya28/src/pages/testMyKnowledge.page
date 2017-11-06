@@ -1,0 +1,8 @@
+<apex:page >
+  
+  <h1>Congratulations</h1>
+  
+ <p> {!IF( Day(TODAY())>2, TODAY()+4,TODAY())}</p>
+  
+
+</apex:page>
